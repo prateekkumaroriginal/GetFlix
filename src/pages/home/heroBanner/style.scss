@@ -109,6 +109,11 @@
                     font-size: 22px;
                 }
             }
+            
+            button:hover{
+                background: var(--gradient-hover);
+            }
+            
         }
     }
 }

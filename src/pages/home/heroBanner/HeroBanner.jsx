@@ -23,6 +23,13 @@ const HeroBanner = () => {
             navigate(`/search/${query}`)
         }
     }
+
+    const signalSearchInput = () => {
+        if (query.length > 0) {
+            navigate(`/search/${query}`)
+        }
+    }
+
     return (
         <div className='heroBanner'>
             {!loading && <div className="backdrop-img">
@@ -39,13 +46,14 @@ const HeroBanner = () => {
                         Explore now.</span>
                     <div className="searchInput">
                         <input
+                            id='searchInput'
                             type="text"
                             value={query}
                             onChange={(e) => { setQuery(e.target.value) }}
                             placeholder='Search for a movie or a TV show'
                             onKeyUp={searchQueryHandler}
                         />
-                        <button>Search</button>
+                        <button onClick={signalSearchInput}>Search</button>
                     </div>
                 </div>
             </ContentWrapper>
