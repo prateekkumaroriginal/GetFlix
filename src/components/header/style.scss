@@ -32,11 +32,15 @@
     }
 
     .logo {
+        display: flex;
+        align-items: center;
         cursor: pointer;
 
-        img {
+        svg {
             height: 50px;
+            width: 250px;
         }
+
     }
 
     .menu {
@@ -77,11 +81,11 @@
         display: flex;
         align-items: center;
         gap: 20px;
-        
+
         @include md {
             display: none;
         }
-        
+
         svg {
             color: white;
             font-size: 18px;
