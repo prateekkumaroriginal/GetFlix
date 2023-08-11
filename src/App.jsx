@@ -42,7 +42,7 @@ function App() {
                     <Route path='/:mediaType/:id' element={<Details />} />
                     <Route path='*' element={<PageNotFound />} />
                 </Routes>
-                {/* <Footer /> */}
+                <Footer />
             </BrowserRouter>
         </div>
     )
