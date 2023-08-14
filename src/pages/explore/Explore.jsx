@@ -35,7 +35,6 @@ const Explore = () => {
     const { mediaType } = useParams();
 
     const { data: genresData } = useFetch(`/genre/${mediaType}/list`);
-    console.log(genresData?.genres);
 
     const fetchInitialData = () => {
         setLoading(true);
