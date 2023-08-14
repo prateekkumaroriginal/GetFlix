@@ -38,7 +38,7 @@ const SearchResult = () => {
 
 
     useEffect(() => {
-        setPageNum(0)
+        setPageNum(1)
         fetchInitialData()
     }, [query])
 
@@ -50,7 +50,7 @@ const SearchResult = () => {
                     {(data?.results.length > 0) ? (
                         <>
                             <div className="pageTitle">
-                                {`Search ${data.total_results > 1 ? 'results' : 'result'} of ${query}`}
+                                {`Search ${data.total_results > 1 ? 'results' : 'result'} for ${query}`}
                             </div>
                             <InfiniteScroll
                                 className='content'
@@ -67,8 +67,13 @@ const SearchResult = () => {
                                 })}
                             </InfiniteScroll>
                         </>
-                    ) : (
+                    ) : (<>
                         <span className="resultNotFound">Sorry, No Results Found!</span>
+                        <div className="resultNotFound">
+                            <img src={noResults} alt="" />
+                        </div>
+                        
+                    </>
                     )}
                 </ContentWrapper>
             )}
