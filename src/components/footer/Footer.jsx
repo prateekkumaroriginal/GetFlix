@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    FaFacebookF,
+    FaGithub,
     FaInstagram,
     FaTwitter,
     FaLinkedin,
@@ -25,18 +25,26 @@ const Footer = () => {
                     &copy; Prateek Movix 2023
                 </div>
                 <div className="socialIcons">
-                    <span className="icon">
-                        <FaFacebookF />
-                    </span>
-                    <span className="icon">
-                        <FaInstagram />
-                    </span>
-                    <span className="icon">
-                        <FaTwitter />
-                    </span>
-                    <span className="icon">
-                        <FaLinkedin />
-                    </span>
+                    <a href="https://github.com/prateekkumaroriginal" target="_blank" className="icon">
+                        <span >
+                            <FaGithub />
+                        </span>
+                    </a>
+                    <a href="https://www.instagram.com/prateek.kumar.original/" target="_blank" className="icon">
+                        <span className="icon">
+                            <FaInstagram />
+                        </span>
+                    </a>
+                    <a href="https://twitter.com/PRATEEK29203194" target="_blank" className="icon">
+                        <span className="icon">
+                            <FaTwitter />
+                        </span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/prateek-kumar-original/" target="_blank" className="icon">
+                        <span className="icon">
+                            <FaLinkedin />
+                        </span>
+                    </a>
                 </div>
             </ContentWrapper>
         </footer>
