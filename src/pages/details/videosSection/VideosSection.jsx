@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import "./style.scss";
 
@@ -6,10 +6,24 @@ import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import { PlayIcon } from "../PlayIcon";
 import VideoPopup from "../../../components/videoPopup/VideoPopup";
 import Img from "../../../components/lazyLoadImage/Img";
+import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from "react-icons/bs";
 
 const VideosSection = ({ data, loading }) => {
     const [show, setShow] = useState(false);
     const [videoId, setVideoId] = useState(null);
+    const videosContianer = useRef()
+
+    const navigation = (dir) => {
+        const container = videosContianer.current
+        const scrollAmount = dir === 'left'
+            ? container.scrollLeft - (container.offsetWidth + 20)
+            : container.scrollLeft + (container.offsetWidth + 20)
+
+        container.scrollTo({
+            left: scrollAmount,
+            behavior: 'smooth'
+        })
+    }
 
     const loadingSkeleton = () => {
         return (
@@ -24,9 +38,20 @@ const VideosSection = ({ data, loading }) => {
     return (
         <div className="videosSection">
             <ContentWrapper>
-                {data?.length > 0 && <div className="sectionHeading">Official Videos</div>}
+                {data?.length > 0 && <>
+                    <div className="sectionHeading">Official Videos</div>
+                    <BsFillArrowLeftCircleFill
+                        className="carouselLeftNav arrow"
+                        onClick={() => { navigation('left') }}
+                    />
+                    <BsFillArrowRightCircleFill
+                        className="carouselRightNav arrow"
+                        onClick={() => { navigation('right') }}
+                    />
+                </>
+                }
                 {!loading ? (
-                    <div className="videos">
+                    <div className="videos"  ref={videosContianer}>
                         {data?.map((video) => (
                             <div
                                 key={video.id}
